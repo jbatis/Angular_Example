@@ -9,7 +9,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 export class LoginUserComponent implements OnInit {
 
   myform : FormGroup;
-  
+  values : String;
+
   constructor() { }
 
   ngOnInit() {
@@ -17,6 +18,14 @@ export class LoginUserComponent implements OnInit {
       user: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
+  }
+
+  login() {
+    console.clear();
+    console.debug("Valor del formulario...");
+    this.values = JSON.stringify(this.myform.value);
+    alert(this.values);
+    console.debug(this.values);
   }
 
 }

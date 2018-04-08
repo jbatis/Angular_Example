@@ -4,7 +4,7 @@
     </div>
     <div class="login-content">
       <h2><strong>Bienvenido</strong> Autentif&iacute;quese</h2>
-      <form [formGroup]="myform">                        
+      <form [formGroup]="myform" (ngSubmit)="login()">
         <div class="form-group">
           <input formControlName="user" name="user" type="text" placeholder="Usuario" class="form-control">
           <div *ngIf="myform.controls.user.touched && 
@@ -20,9 +20,8 @@
           </div>
         </div>
         <div class="form-group">
-          <button class="btn btn-primary btn-block">Entrar</button>
+          <button class="btn btn-primary btn-block" [disabled]="!myform.valid">Entrar</button>
         </div>
-        
         <div class="connect" style="text-align:center">
             <p>Sigueme en:</p>
             <p>
@@ -30,7 +29,6 @@
                 <a class="in" href="https://www.linkedin.com/in/juan-carlos-bautista/" target="_blank"></a> 
             </p>
         </div>
-
       </form>
     </div>
   </div>
