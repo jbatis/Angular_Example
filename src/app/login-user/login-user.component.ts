@@ -20,9 +20,7 @@ export class LoginUserComponent implements OnInit {
    */
   values : String;
 
-  constructor(private loginService : LoginService ) { 
-
-  }
+  constructor(private loginService : LoginService ) {  }
 
   ngOnInit() {
     this.myform = new  FormGroup({
