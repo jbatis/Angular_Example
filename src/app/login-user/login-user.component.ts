@@ -10,7 +10,14 @@ import { LoginService } from "./login.service";
 })
 export class LoginUserComponent implements OnInit {
 
+  /**
+   * Funcion que permite exponer los componentes a la  vista.
+   */
   myform : FormGroup;
+  /**
+   * La utilizó unicamente para detallar la info ingresada al 
+   * formulario en formato json.
+   */
   values : String;
 
   constructor(private loginService : LoginService ) { 
@@ -24,6 +31,9 @@ export class LoginUserComponent implements OnInit {
     });
   }
 
+  /**
+   * función que permite realizar el login con el usuario.
+   */
   login() {
     console.clear();
     console.debug("Valor del formulario...");
