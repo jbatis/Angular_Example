@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from "./login.service";
 
 @Component({
@@ -13,20 +13,28 @@ export class LoginUserComponent implements OnInit {
   /**
    * Funcion que permite exponer los componentes a la  vista.
    */
-  myform : FormGroup;
+  public myform : FormGroup;
   /**
    * La utilizó unicamente para detallar la info ingresada al 
    * formulario en formato json.
    */
   values : String;
 
-  constructor(private loginService : LoginService ) {  }
+  constructor(private fb: FormBuilder , private loginService : LoginService ) {  }
 
   ngOnInit() {
+
+    this.myform = this.fb.group({
+      user : ['', Validators.required],
+      password : ['', Validators.required]
+    });
+
+    /*
     this.myform = new  FormGroup({
       user: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
+    */
   }
 
   /**
